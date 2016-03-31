@@ -1,0 +1,30 @@
+<div class="col-md-offset-2 col-md-12">
+  <h2>Detalhes da Matrícula</h2>
+  <br />
+
+  <p id="notice"><%= notice %></p>
+
+  <p class="col-md-12">
+    <strong>Matrícula:</strong>
+    <%= @classroom.id %>
+  </p>
+
+  <p class="col-md-12">
+    <strong>Estudante:</strong>
+    <%= @classroom.student.name %>
+  </p>
+
+  <p class="col-md-12">
+    <strong>Curso:</strong>
+    <%= @classroom.course.name %>
+  </p>
+
+  <div class="col-md-2">
+    <%= link_to 'Editar', edit_classroom_path(@classroom), class: 'btn btn-info btn-block' %>
+  </div>
+
+  <div class="col-md-2">
+    <%= link_to 'Voltar', classrooms_path, class: 'btn btn-default btn-block' %>
+  </div>
+
+</div>

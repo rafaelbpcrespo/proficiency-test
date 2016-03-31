@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h2>Turmas</h2>
+  <div class="text-right">
+    <%= link_to new_classroom, class: 'btn btn-primary' do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Matrícula</th>
+        <th>Estudante</th>
+        <th>Curso</th>
+        <th> Opções </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @classrooms.each do |classroom| %>
+      <tr>
+        <td><%= classroom.id %></td>
+        <td><%= classroom.student.name %></td>
+        <td><%= classroom.course.name %></td>
+        <td>
+          <%= link_to classroom, class: 'btn btn-sm btn-info', title: 'Detalhes da Turma' do %>
+            <i class="fa fa-eye"></i>
+          <% end %>
+          <%= link_to edit_classroom(classroom), class: 'btn btn-sm btn-primary', title: 'Editar Informações' do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to classroom, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger btn-sm', title: 'Remover Turma' do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
