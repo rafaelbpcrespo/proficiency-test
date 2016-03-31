@@ -6,6 +6,10 @@ pt-BR:
       description: Descrição
     show:
       <<: *index
+    create:
+      notice: 'Curso cadastrado com sucesso!'
+    update:
+      notice: 'Curso atualizado com sucesso!'
   students:
     index: &index
       name: Nome
@@ -13,3 +17,16 @@ pt-BR:
       register_number: Número de Registro
     show:
       <<: *index
+    create:
+      notice: 'Estudante cadastrado com sucesso!'
+    update:
+      notice: 'Estudante atualizado com sucesso!'
+  classrooms:
+    index: &index
+      entry_at: Matriculado em
+    show:
+      <<: *index
+    create:
+      notice: 'Matrícula realizada com sucesso!'
+    update:
+      notice: 'Matrícula atualizada com sucesso!'
