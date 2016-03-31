@@ -12,7 +12,7 @@
       <tr>
         <th>Nome</th>
         <th>Descrição</th>
-        <th>Status</th>
+        <th>Situação</th>
         <th> Opções </th>
       </tr>
     </thead>
@@ -22,7 +22,7 @@
       <tr>
         <td><%= course.name %></td>
         <td><%= course.description %></td>
-        <td><%= course.status %></td>
+        <td><%= CourseStatus.translate(CourseStatus.key_for(course.status)) %></td>
         <td>
           <%= link_to course, class: 'btn btn-sm btn-info', title: 'Detalhes do Curso' do %>
             <i class="fa fa-eye"></i>

@@ -23,7 +23,7 @@
       <tr>
         <td><%= student.name %></td>
         <td><%= student.register_number %></td>
-        <td><%= student.status %></td>
+        <td><%= StudentStatus.translate(StudentStatus.key_for(student.status)) %></td>
         <td><%= student.number_of_classrooms %></td>
         <td>
           <%= link_to student, class: 'btn btn-sm btn-info', title: 'Detalhes do Estudante' do %>
