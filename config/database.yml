@@ -3,13 +3,21 @@ development:
   encoding: unicode
   database: proficiency-test_development
   pool: 5
-  username: root
-  password: "123"
+  username: postgres
+  password: 123456
 
 test:
   adapter: postgresql
   encoding: unicode
   database: proficiency-test_test
   pool: 5
-  username: root
-  password: "123"
+  username: postgres
+  password: 123456
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: proficiency-test_test
+  pool: 5
+  username: postgres
+  password: 123456
