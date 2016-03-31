@@ -8,4 +8,8 @@ class Student < ActiveRecord::Base
 
   validates_associated :classrooms
 
+  def number_of_classrooms
+    courses.where(status: 1).count
+  end
+
 end
