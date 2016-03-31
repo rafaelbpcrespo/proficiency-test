@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ProficiencyTest</title>
+  <title>ProficiencyTest - Matrículas</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Sistema de Matrícula</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Cursos', courses_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="content">
+    <div class="row template">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
