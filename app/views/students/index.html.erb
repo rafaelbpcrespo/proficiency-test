@@ -13,6 +13,7 @@
         <th>Nome</th>
         <th>Número de Registro</th>
         <th>Status</th>
+        <th>Matrículas Vigentes</th>
         <th> Opções </th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@
         <td><%= student.name %></td>
         <td><%= student.register_number %></td>
         <td><%= student.status %></td>
+        <td><%= student.number_of_classrooms %></td>
         <td>
           <%= link_to student, class: 'btn btn-sm btn-info', title: 'Detalhes do Estudante' do %>
             <i class="fa fa-eye"></i>
