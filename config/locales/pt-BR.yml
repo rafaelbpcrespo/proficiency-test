@@ -1,0 +1,8 @@
+pt-BR:
+  courses:
+    index: &index
+      name: Nome
+      status: Situação
+      description: Descrição
+    show:
+      <<: *index

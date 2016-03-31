@@ -4,8 +4,15 @@ pt-BR:
       account_category:
         one: Categoria
         other: Categorias
+      course:
+        one: Curso
+        other: Cursos
 
     attributes:
       account_category:
         name: Nome
+        status: Situação
+      course:
+        name: Nome
+        description: Descrição
         status: Situação
