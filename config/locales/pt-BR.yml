@@ -6,3 +6,10 @@ pt-BR:
       description: Descrição
     show:
       <<: *index
+  students:
+    index: &index
+      name: Nome
+      status: Situação
+      register_number: Número de Registro
+    show:
+      <<: *index
