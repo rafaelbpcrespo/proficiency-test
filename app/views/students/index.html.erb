@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h2>Estudantes</h2>
+  <div class="text-right">
+    <%= link_to new_student_path, class: 'btn btn-primary' do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Número de Registro</th>
+        <th>Status</th>
+        <th> Opções </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.register_number %></td>
+        <td><%= student.status %></td>
+        <td>
+          <%= link_to student, class: 'btn btn-sm btn-info', title: 'Detalhes do Estudante' do %>
+            <i class="fa fa-eye"></i>
+          <% end %>
+          <%= link_to edit_student_path(student), class: 'btn btn-sm btn-primary', title: 'Editar Informações' do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to student, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger btn-sm', title: 'Remover Estudante' do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

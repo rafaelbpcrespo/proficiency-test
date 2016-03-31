@@ -1,0 +1,29 @@
+<div class="col-md-offset-2 col-md-12">
+  <h2>Detalhes do Estudante</h2>
+  <br />
+
+  <p id="notice"><%= notice %></p>
+
+  <p class="col-md-12">
+    <strong><%= t('.name') %>:</strong>
+    <%= @student.name %>
+  </p>
+
+  <p class="col-md-12">
+    <strong><%= t('.register_number') %>:</strong>
+    <%= @student.register_number %>
+  </p>
+
+  <p class="col-md-12">
+    <strong><%= t('.status') %>:</strong>
+    <%= @student.status %>
+  </p>
+
+  <div class="col-md-2">
+    <%= link_to 'Editar', edit_student_path(@student), class: 'btn btn-info btn-block' %>
+  </div>
+
+  <div class="col-md-2">
+    <%= link_to 'Voltar', students_path, class: 'btn btn-default btn-block' %>
+  </div>
+</div>
