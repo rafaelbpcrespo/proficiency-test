@@ -10,6 +10,9 @@ pt-BR:
       student:
         one: Estudante
         other: Estudantes
+      classroom:
+        one: Matrícula
+        other: Matrículas
 
     attributes:
       account_category:
@@ -23,3 +26,5 @@ pt-BR:
         name: Nome
         register_number: Número de Registro
         status: Situação
+      student:
+        entry_at: Matriculado em
