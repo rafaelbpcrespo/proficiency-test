@@ -3,3 +3,6 @@ pt-BR:
     course_status:
       opened: "Aberto"
       closed: "Fechado"
+    student_status:
+      active: "Ativo"
+      inactive: "Inativo"
