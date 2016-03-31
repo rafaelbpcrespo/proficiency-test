@@ -3,4 +3,9 @@ class Student < ActiveRecord::Base
   validates :register_number, uniqueness: true
 
   has_enumeration_for :status, with: StudentStatus
+  has_many :classrooms
+  has_many :courses, through: :classrooms
+
+  validates_associated :classrooms
+
 end
