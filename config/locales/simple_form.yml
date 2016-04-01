@@ -7,3 +7,22 @@ pt-BR:
       mark: '*'
     error_notification:
       default_message: "<strong>Alguns erros foram encontrados</strong>. Por favor, verifique:"
+
+  activerecord:
+      models:
+        course: Curso
+        student: Estudante
+        classroom: Turma
+      attributes:
+        course:
+          name: Nome
+          status: Situação
+          description: Descrição
+        student:
+          name: Nome
+          status: Situação
+          register_number: Número de registro
+        classroom:
+          entry_at: Matriculado em
+          student: Estudante
+          course: Curso
