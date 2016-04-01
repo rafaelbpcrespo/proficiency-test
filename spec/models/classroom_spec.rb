@@ -46,8 +46,29 @@ RSpec.describe Classroom, :type => :model do
           expect(classroom.errors[:student].length).to eq 0
         end
       end
-
     end
+
+    describe '#duplicated_student_at_course?' do
+      let(:course) { create :course }
+      let(:student) { create :student }
+
+      context 'should have error' do
+        it 'if the student is already registered on the course' do
+          classroom1 = Classroom.create(student: student, course: course)
+          classroom = Classroom.create(student: student, course: course)
+
+          expect(classroom.errors[:student].length).to eq 1
+        end
+      end
+
+      context 'should not have error' do
+        it 'if the student is not registered on the course' do
+          classroom = create :classroom, student: student, course: course
+          expect(classroom.errors[:student].length).to eq 0
+        end
+      end
+    end
+
   end
 
   describe 'associations' do

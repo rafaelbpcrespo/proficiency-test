@@ -6,6 +6,7 @@ class Classroom < ActiveRecord::Base
 
   validate :student_active?
   validate :course_opened?
+  validate :duplicated_student_at_course?
 
   def set_entry_at
     self.entry_at = DateTime.now
@@ -17,5 +18,9 @@ class Classroom < ActiveRecord::Base
 
   def course_opened?
     errors.add(:course, 'não está aberto') unless course.opened?
+  end
+
+  def duplicated_student_at_course?
+    errors.add(:student, 'Estudante já faz parte deste curso.') if course.students.include? student
   end
 end
