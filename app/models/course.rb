@@ -9,4 +9,7 @@ class Course < ActiveRecord::Base
 
   validates_associated :classrooms
 
+  def opened?
+    self.status == 1
+  end
 end
