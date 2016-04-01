@@ -2,8 +2,52 @@ require 'rails_helper'
 
 RSpec.describe Classroom, :type => :model do
   describe 'validations' do
-    it { should validate_presence_of(:student_id) }
-    it { should validate_presence_of(:course_id) }
+    describe '#course_opened?' do
+      let(:course) { create :course, status: 0 }
+      let(:student) { create :student }
+
+      context 'should have error' do
+        it 'if the course is not opened' do
+          classroom = Classroom.new(student: student, course: course)
+          classroom.valid?
+          expect(classroom.errors[:course].length).to eq 1
+        end
+      end
+
+      context 'should not have error' do
+        it 'if the course is opened' do
+          course.status = 1
+          course.save
+          classroom = Classroom.new(student: student, course: course)
+          classroom.valid?
+          expect(classroom.errors[:course].length).to eq 0
+        end
+      end
+    end
+
+    describe '#student_active?' do
+      let(:course) { create :course }
+      let(:student) { create :student, status: 0 }
+
+      context 'should have error' do
+        it 'if the student is not active' do
+          classroom = Classroom.new(student: student, course: course)
+          classroom.valid?
+          expect(classroom.errors[:student].length).to eq 1
+        end
+      end
+
+      context 'should not have error' do
+        it 'if the student is active' do
+          student.status = 1
+          student.save
+          classroom = Classroom.new(student: student, course: course)
+          classroom.valid?
+          expect(classroom.errors[:student].length).to eq 0
+        end
+      end
+
+    end
   end
 
   describe 'associations' do
