@@ -24,11 +24,26 @@ RSpec.describe Student, :type => :model do
     end
 
     it 'should return 1 when the student is registered on 2 courses and one of them is with status CLOSED' do
+      classroom2 = create :classroom, student: student, course: course2
+      classroom1 = create :classroom, student: student, course: course
       course2.status = 0
       course2.save
-      classroom1 = create :classroom, student: student, course: course
-      classroom2 = create :classroom, student: student, course: course2
+
       expect(student.number_of_classrooms).to eq 1
+    end
+  end
+
+  describe '#active?' do
+    let(:student) { create :student }
+
+    it 'should return true when status is equal 1' do
+      expect(student.active?).to be_truthy
+    end
+
+    it 'should return true when status is equal 1' do
+      student.status = 0
+      student.save
+      expect(student.active?).to be_falsey
     end
   end
 end

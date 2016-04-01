@@ -12,4 +12,7 @@ class Student < ActiveRecord::Base
     courses.where(status: 1).count
   end
 
+  def active?
+    self.status == 1
+  end
 end
