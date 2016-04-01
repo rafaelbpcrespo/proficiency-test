@@ -12,10 +12,10 @@ class Classroom < ActiveRecord::Base
   end
 
   def student_active?
-    errors.add(:student, 'is not active') unless student.active?
+    errors.add(:student, 'não está ativo') unless student.active?
   end
 
   def course_opened?
-    errors.add(:course, 'is not opened') unless course.opened?
+    errors.add(:course, 'não está aberto') unless course.opened?
   end
 end
