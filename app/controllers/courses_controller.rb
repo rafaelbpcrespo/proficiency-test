@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.all.order(name: :asc)
   end
 
   # GET /courses/1
@@ -58,6 +58,22 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to courses_url }
       format.json { head :no_content }
+    end
+  end
+
+  def open
+    @course = Course.find(params[:id])
+    respond_to do |format|
+      @course.update_attribute(:status, 1)
+      format.html { redirect_to @course, notice: "Curso foi aberto com sucesso." }
+    end
+  end
+
+  def close
+    @course = Course.find(params[:id])
+    respond_to do |format|
+      @course.update_attribute(:status, 0)
+      format.html { redirect_to @course, notice: "Curso foi fechado com sucesso." }
     end
   end
 

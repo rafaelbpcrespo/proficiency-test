@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.order(name: :asc)
   end
 
   # GET /students/1
@@ -60,6 +60,23 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def activate
+    @student = Student.find(params[:id])
+    respond_to do |format|
+      @student.update_attribute(:status, 1)
+      format.html { redirect_to @student, notice: "Estudante foi ativado com sucesso." }
+    end
+  end
+
+  def inactivate
+    @student = Student.find(params[:id])
+    respond_to do |format|
+      @student.update_attribute(:status, 0)
+      format.html { redirect_to @student, notice: "Estudante foi desativado com sucesso." }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

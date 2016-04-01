@@ -32,6 +32,15 @@
           <%= link_to edit_student_path(student), class: 'btn btn-sm btn-primary', title: 'Editar Informações' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
+          <% if student.status == 1 %>
+            <%= link_to inactivate_student_path(student), method: :put, class: 'btn btn-sm btn-danger', title: 'Desativar Estudante' do %>
+              <i class="fa fa-close"></i>
+            <% end %>
+          <% else %>
+            <%= link_to activate_student_path(student), method: :put, class: 'btn btn-sm btn-success', title: 'Ativar Estudante' do %>
+              <i class="fa fa-check"></i>
+            <% end %>
+          <% end %>
           <%= link_to student, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger btn-sm', title: 'Remover Estudante' do %>
             <i class="fa fa-trash"></i>
           <% end %>

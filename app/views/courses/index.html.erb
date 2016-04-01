@@ -30,6 +30,15 @@
           <%= link_to edit_course_path(course), class: 'btn btn-sm btn-primary', title: 'Editar Informações' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
+          <% if course.status == 1 %>
+            <%= link_to close_course_path(course), method: :put, class: 'btn btn-sm btn-danger', title: 'Fechar Curso' do %>
+              <i class="fa fa-close"></i>
+            <% end %>
+          <% else %>
+            <%= link_to open_course_path(course), method: :put, class: 'btn btn-sm btn-success', title: 'Abrir Curso' do %>
+              <i class="fa fa-check"></i>
+            <% end %>
+          <% end %>
           <%= link_to course, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger btn-sm', title: 'Remover Curso' do %>
             <i class="fa fa-trash"></i>
           <% end %>

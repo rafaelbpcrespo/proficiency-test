@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   resources :classrooms
 
-  resources :students
+  resources :students do
+    member do
+      put :activate
+      put :inactivate
+    end
+  end
 
-  resources :courses
+  resources :courses do
+    member do
+      put :open
+      put :close
+    end
+  end
 
   root 'classrooms#index'
 
